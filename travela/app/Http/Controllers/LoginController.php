@@ -24,7 +24,7 @@ class LoginController extends Controller
         if (User::where('email', $request->email)->first()) {
             $user = User::where('email', $request->email)->first();
             if (Hash::check($request->password, $user->password)) {
-                $success['token'] =  $user->createToken('prantik')->plainTextToken;
+                $success['token'] =  $user->createToken('helal')->plainTextToken;
                 $success['user'] =  $user;
                 Auth::login($user);
                 return $this->sendResponse($success, 'Login successful.');

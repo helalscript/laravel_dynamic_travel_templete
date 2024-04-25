@@ -36,7 +36,7 @@ axios.post('http://127.0.0.1:8000/api/login', {
 .then(response => {
 const token=response.data.data.token;
 const user=response.data.data.user.name;
-axios.defaults.headers.common['Authorization'] = 'Bearer' + token;
+axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 localStorage.setItem('token', JSON.stringify(token));
 localStorage.setItem('user', JSON.stringify(user));
 window.location.href = '/adminh';
